@@ -3,6 +3,7 @@ module.exports = io => {
           console.log('New User');
           socket.on('userCoord', (coords)  => {                           
                socket.broadcast.emit('newUserCoord', coords);
+               console.log("coords");
            });
      });
 };

@@ -9,7 +9,7 @@ const map = L.map('map').setView([latitud, longitud],zoom);
 L.tileLayer(TileURL).addTo(map);   
 
 //
-map.locate({enableHighAccuracy: true})
+map.locate({setView: true, maxZoom: 16});
 map.on('locationfound',e =>{   
      //Coord
      const coords = [e.latitude, e.longitude];
@@ -29,7 +29,6 @@ socket.on('newUserCoord', (coords)=>{
       //Marker
      const marker = L.marker([coords[0]+acum,coords[1]+acum]);
      marker.bindPopup('You are here');
-     marker.addTo(map);    
+     marker.addTo(map);
+     console.log("hi from server")
 });
-
- 
